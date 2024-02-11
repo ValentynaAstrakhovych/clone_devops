@@ -26,7 +26,7 @@ resource "aws_instance" "test_t2_micro" {
   ami                    = "ami-0c7217cdde317cfec" # Ubuntu amd64 (x86_64)
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
-  key_name = "connect_me_to_aws.pem"
+  key_name               = "connect_me_to_aws.pem"
 
 
   tags = {
