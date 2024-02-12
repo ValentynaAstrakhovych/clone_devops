@@ -21,16 +21,17 @@ terraform {
 
 # please setup your aws access through the cli
 
-resource "aws_instance" "test_t2_micro" {
+resource "aws_instance" "test_2_t2_micro" 
+{
   # ami                    = "ami-0a0c8eebcdd6dcbd0" # ubuntu arm64 
   ami                    = "ami-0c7217cdde317cfec" # Ubuntu amd64 (x86_64)
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
-  key_name               = "connect_me_to_aws.pem"
+  key_name               = "ansible_access_instance.pem"
 
 
   tags = {
-    Name = "Lesson_4_Ansible"
+    Name = "Lesson_8_Ansible"
   }
 }
 
