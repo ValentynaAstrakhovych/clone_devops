@@ -10,18 +10,18 @@ terraform {
     }
   }
 
-  # backend "s3" {
-  #   bucket = "terraform-state-oleksii"
-  #   key    = "terraform_my_infra.tfstate"
-  #   region = "us-east-1"
-  # }
+  backend "s3" {
+    bucket = "" # please specify your bucket name
+    key    = "" # please specify your key name
+    region = "us-east-1"
+  }
 
   required_version = ">= 1.3"
 }
 
 # please setup your aws access through the cli
 
-resource "aws_instance" "test_2_t2_micro"{
+resource "aws_instance" "test_2_t2_micro" {
   # ami                    = "ami-0a0c8eebcdd6dcbd0" # ubuntu arm64 
   ami                    = "ami-0c7217cdde317cfec" # Ubuntu amd64 (x86_64)
   instance_type          = "t2.micro"
@@ -29,7 +29,8 @@ resource "aws_instance" "test_2_t2_micro"{
   key_name               = "ansible_access_instance"
 
   tags = {
-    Name = "Lesson_8_Ansible"
+    Name = "Lesson_9_Ansible"
+
   }
 }
 
