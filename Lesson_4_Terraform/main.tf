@@ -55,7 +55,7 @@ resource "aws_instance" "test_t2_micro" {
     EOF_HTML
   EOF
   tags = {
-    Name = "Test_1"
+    Name = "Testest"
   }
 }
 
