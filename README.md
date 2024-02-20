@@ -1,5 +1,3 @@
 # DevOps_Jan_24
 
-Lesson TerraForm
-
-azzot88 sign
+Lessons for the DevOps group Jan24 (Group3)
