@@ -7,9 +7,24 @@ pipeline {
     stages {
         stage('Clone Git repo') {
             steps {
-                git(branch: 'main', url: 'https://github.com/LocalCoding/DevOps_Jan_24.git', credentialsId: 'test_credential_jenkins_git_access')
+    // Bind the SSH private key to an environment variable
+    withCredentials([sshUserPrivateKey(credentialsId: 'NameOfYourKey', keyFileVariable: 'SSH_KEY')]) {
+        sh '''
+        # Start the SSH agent and add the key
+        eval $(ssh-agent -s)
+        ssh-add $SSH_KEY
+
+        # Ensure GitHub is a known host
+        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+        # Use verbose output for the git command
+        GIT_SSH_COMMAND="ssh -vvv" git clone -b main --single-branch git@github.com:YourForkRepository/DevOps_Jan_24.git
+
+        # Clean up the SSH agent
+        eval $(ssh-agent -k)
+        '''
+    }
             }
-        }
         stage('Plan') {
             steps {
                 sh '''
@@ -32,5 +47,5 @@ pipeline {
                 '''
             }
         }
+        }
     }
-}
