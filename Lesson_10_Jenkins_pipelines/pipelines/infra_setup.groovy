@@ -16,7 +16,9 @@ pipeline {
 
         # Ensure GitHub is a known host
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-
+        ### Make sure repository does not exists
+        rm -rf ./DevOps_Jan_24
+        
         # Use verbose output for the git command
         GIT_SSH_COMMAND="ssh -vvv" git clone -b main --single-branch git@github.com:YourForkRepository/DevOps_Jan_24.git
 
