@@ -1,0 +1,54 @@
+---
+- name: Install Jenkins on Ubuntu
+  hosts: all
+  user: ubuntu
+  become: true
+  become_user: root
+  vars:
+    java_packages:
+      - openjdk-11-jdk
+    utils_packages:
+      - apt-transport-https
+      - wget
+      - curl
+      - software-properties-common
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Java packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ java_packages }}"
+
+    - name: Install utility packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ utils_packages }}"
+
+    - name: Manually add Jenkins APT repository key
+      command: wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    - name: manually add key for the repo
+      command: echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee  /etc/apt/sources.list.d/jenkins.list > /dev/null
+    - name: Add Jenkins APT repository
+      apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/"
+        state: present
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+
+    - name: Enable and start Jenkins service
+      systemd:
+        name: jenkins
+        enabled: yes
+        state: started
