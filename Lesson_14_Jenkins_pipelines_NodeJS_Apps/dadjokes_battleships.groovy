@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    triggers {
-        githubPush()
-        pollSCM('H * * * *')
-    }
-
     parameters {
         string(name: 'ACTION', defaultValue: 'abort', description: 'Action to take')
         choice(name: 'SLEEP', choices: ['yes', 'no'], description: 'Sleep before Ansible Playbook?')
@@ -108,7 +103,7 @@ pipeline {
                             }
                                                 
                         sh '''
-                        ansible-playbook -i instance_ip.txt generic_playbook_2apps_and_lb.yaml -u ubuntu --private-key=$SSH_KEY -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
+                        ansible-playbook -i instance_ip.txt playbook_nodejs_dadjokes.yaml -u ubuntu --private-key=$SSH_KEY -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
                         '''
                         }
                     }

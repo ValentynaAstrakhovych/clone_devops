@@ -7,12 +7,12 @@
       - name: "battleships"
         directory: "/opt/battleships_app"
         entry_point: "server.js"
-        domain: "battleships.paxel.ca"
+        domain: "dummy_domain_name"
         port: 3000 # Assuming your app runs on port 3000
       - name: "dadjokes"
         directory: "/opt/dadjokes_app"
         entry_point: "server.js"
-        domain: "dadjokes.paxel.ca"
+        domain: "dummy_domain_name"
         port: 3001 # Assuming your app runs on port 3001
 
   tasks:

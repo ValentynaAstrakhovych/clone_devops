@@ -12,8 +12,8 @@ terraform {
 
   required_version = ">= 1.3"
   backend "s3" {
-    bucket = "terraform-state-test-my-cloud"
-    key    = "nodejsapp_example/terraform.tfstate"
+    bucket = "terraform-state-test-my-cloud" # setup your s3 bucket name
+    key    = "nodejsapp_example/terraform.tfstate" # setup your s3 bucket name
     region = "us-east-1"
   }
 }

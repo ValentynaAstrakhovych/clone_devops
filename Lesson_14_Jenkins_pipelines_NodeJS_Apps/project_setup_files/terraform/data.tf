@@ -25,11 +25,11 @@ data "aws_subnet" "vpcsubnet" {
 data "aws_caller_identity" "current" {}
 
 # Fetch the Route 53 Hosted Zone ID
-data "aws_route53_zone" "paxel_ca" {
-  name         = "paxel.ca." # Replace with your domain name, ending with a period
-  private_zone = false
-}
+# data "aws_route53_zone" "paxel_ca" {
+#   name         = "Your_Domain_Name" # Replace with your domain name, ending with a period
+#   private_zone = false
+# }
 
-output "hosted_zone_id" {
-  value = data.aws_route53_zone.paxel_ca.zone_id
-}
+# output "hosted_zone_id" {
+#   value = data.aws_route53_zone.paxel_ca.zone_id
+# }

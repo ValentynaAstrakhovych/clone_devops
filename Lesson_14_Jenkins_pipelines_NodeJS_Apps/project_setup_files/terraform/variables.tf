@@ -1,3 +1,3 @@
-variable "domain_name" {
-    default = "paxel.ca"
-}
+# variable "domain_name" {
+#     default = "your_domain_name"
+# }
