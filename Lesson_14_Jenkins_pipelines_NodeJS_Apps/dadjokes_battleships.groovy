@@ -11,8 +11,8 @@ pipeline {
     }
 
     environment {
-        GIT_REPO = 'https://github.com/LocalCoding/DevOps_Jan_24.git'
-        GIT_CREDENTIALS = 'git_access_PAT'
+        GIT_REPO = 'git@github.com:LocalCoding/DevOps_Jan_24.git'
+        GIT_CREDENTIALS = 'jenkins_access_to_git'
         ANSIBLE_DIRECTORY = 'project_setup_files/ansible'
         TF_DIRECTORY = 'project_setup_files/terraform'
     }
