@@ -13,8 +13,8 @@ pipeline {
     environment {
         GIT_REPO = 'git@github.com:LocalCoding/DevOps_Jan_24.git'
         GIT_CREDENTIALS = 'jenkins_access_to_git'
-        ANSIBLE_DIRECTORY = 'project_setup_files/ansible'
-        TF_DIRECTORY = 'project_setup_files/terraform'
+        ANSIBLE_DIRECTORY = 'Lesson_14_Jenkins_pipelines_NodeJS_Apps/project_setup_files/ansible'
+        TF_DIRECTORY = 'Lesson_14_Jenkins_pipelines_NodeJS_Apps/project_setup_files/terraform'
     }
 
     stages {
