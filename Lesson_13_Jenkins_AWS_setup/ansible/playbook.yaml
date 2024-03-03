@@ -88,7 +88,7 @@
       command: cat /var/lib/jenkins/secrets/initialAdminPassword
       register: jenkins_admin_password
       changed_when: false
-      ignore_errors: yes
+      ignore_errors: true
 
     - name: Print Jenkins initial admin password
       debug:
