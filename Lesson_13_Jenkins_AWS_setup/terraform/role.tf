@@ -33,14 +33,14 @@ resource "aws_iam_role_policy" "jenkins_role" {
         Action = [
           "ec2:*"
         ],
-        Effect = "Allow",
+        Effect   = "Allow",
         Resource = "*"
       },
       {
         Action = [
           "s3:*"
         ],
-        Effect = "Allow",
+        Effect   = "Allow",
         Resource = "*"
       },
       {
@@ -48,7 +48,7 @@ resource "aws_iam_role_policy" "jenkins_role" {
           "iam:PassRole",
           "iam:ListRoles"
         ],
-        Effect = "Allow",
+        Effect   = "Allow",
         Resource = "*"
       }
     ]

@@ -9,14 +9,14 @@ terraform {
       version = "~>3.5"
     }
   }
-    backend "s3" {
+  backend "s3" {
     bucket = "terraform-state-oleksii-devopslessons" # please specify your bucket name
-    key    = "lesson13/nodejsApp" # please specify your key name
+    key    = "lesson13/nodejsApp"                    # please specify your key name
     region = "us-east-1"
-                }
+  }
   required_version = ">= 1.7"
 }
 
 provider "aws" {
-  region     = "us-east-1"
+  region = "us-east-1"
 }
