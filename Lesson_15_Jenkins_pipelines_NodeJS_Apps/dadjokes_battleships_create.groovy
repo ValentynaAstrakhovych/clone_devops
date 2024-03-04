@@ -103,7 +103,7 @@ pipeline {
                             }
                                                 
                         sh '''
-                        ansible-playbook -i instance_ip.txt generic_playbook_2apps.yaml -u ubuntu --private-key=$SSH_KEY -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
+                        ansible-playbook -i instance_ip.txt generic_playbook_2apps.yaml -u ubuntu --private-key='$SSH_KEY' -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
                         '''
                         }
                     }
