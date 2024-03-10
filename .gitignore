@@ -1,3 +1,5 @@
 *.terraform*
 *.tfstate
 terraform.tfstate.backup
+jenkins_data/*
+jenkins_data
