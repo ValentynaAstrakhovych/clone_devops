@@ -1,15 +1,10 @@
 Pre-Requeries
 1. Build your own jenkins-docker-image with command
-```docker build . -t jenkins:custom_plugins```
+```docker build . -t experimental/pacman:v2 ```
 2. To run
      docker-compose start command
-```docker-compose -f docker-compose-jenkins-local.yaml up -d```
+```docker-compose -f docker-compose-deployment-pacman-and-mongo.yaml up -d```
 3. To stop 
-```docker-compose -f docker-compose-jenkins-local.yaml stop``` 
+```docker-compose -f docker-compose-deployment-pacman-and-mongo.yaml stop``` 
 4. To destroy
-```docker-compose -f docker-compose-jenkins-local.yaml destroy```
-
-to backup your jenkins from the loud
-
-```rsync -avz -e "ssh -i "PathToYourKey" " --rsync-path="sudo rsync" ubuntu@34.235.32.214:/var/lib/jenkins jenkins_data```
-```be mindfull of the variables and make sure you setup directory structure correct```
+```docker-compose -f docker-compose-deployment-pacman-and-mongo.yaml destroy```
