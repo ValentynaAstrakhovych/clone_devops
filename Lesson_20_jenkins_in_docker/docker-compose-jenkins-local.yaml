@@ -7,8 +7,6 @@ services:
     volumes:
       - jenkins_data:/var/jenkins_home
       - ./plugins.txt:/usr/share/jenkins/ref/plugins.txt
-    environment:
-      - JENKINS_OPTS=--argumentsRealm.passwd.admin=admin --argumentsRealm.roles.user=admin --argumentsRealm.roles.admin=admin
 volumes:
   jenkins_data:
     driver: local
