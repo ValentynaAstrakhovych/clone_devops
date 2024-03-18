@@ -1,3 +1,6 @@
+from ubuntu:16.04
+
+
 FROM node:6.14.4
 
 COPY ./pacman_source_code /opt/pacman_source_code
