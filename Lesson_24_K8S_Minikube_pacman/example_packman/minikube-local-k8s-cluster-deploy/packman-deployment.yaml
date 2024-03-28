@@ -43,7 +43,7 @@ spec:
               containerPort: 8080
           env:
             - name: MONGO_SERVICE_HOST
-              value: "mongo.pacman.svc.cluster.local"
+              value: "mongo.pacman.svc.cluster.local" # service_name.namespace.svc.cluster.local
             - name: MONGO_AUTH_USER
               value: "pacman"
             - name: MONGO_AUTH_PWD
