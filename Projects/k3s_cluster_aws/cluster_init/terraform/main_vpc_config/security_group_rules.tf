@@ -11,11 +11,11 @@ resource "aws_security_group" "k3s_sg" {
   }
 
   ingress {
-  protocol    = "icmp"
-  from_port   = 8    # Echo request
-  to_port     = 0    # Echo request code
-  cidr_blocks = ["0.0.0.0/0"]
-}
+    protocol    = "icmp"
+    from_port   = 8 # Echo request
+    to_port     = 0 # Echo request code
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
 
   ingress {
@@ -31,7 +31,7 @@ resource "aws_security_group" "k3s_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   ingress {
     from_port   = 6443
     to_port     = 6443

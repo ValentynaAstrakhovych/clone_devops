@@ -10,23 +10,23 @@ resource "aws_vpc" "k3s_vpc" {
 
 # Define a Public Subnet
 # resource "aws_subnet" "k3s_public_subnet" {
-  vpc_id                  = aws_vpc.k3s_vpc.id
-  cidr_block              = "10.0.1.0/24" # 255.255.255.0 = 256 IPs
-  map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[0]
-  tags = {
-    Name = "K3s_Public_Subnet"
-  }
+#  vpc_id                  = aws_vpc.k3s_vpc.id
+#  cidr_block              = "10.0.1.0/24" # 255.255.255.0 = 256 IPs
+#  map_public_ip_on_launch = true
+#  availability_zone = data.aws_availability_zones.available.names[0]
+#  tags = {
+#    Name = "K3s_Public_Subnet"
+#  }
 # }
 
 # Define a Private Subnet
 # resource "aws_subnet" "k3s_private_subnet" {
-  vpc_id     = aws_vpc.k3s_vpc.id
-  cidr_block = "10.0.2.0/24" # 255.255.255.0 = 256 IPs
-  availability_zone = data.aws_availability_zones.available.names[1]
-  tags = {
-    Name = "K3s_Private_Subnet"
-  }
+#  vpc_id     = aws_vpc.k3s_vpc.id
+#  cidr_block = "10.0.2.0/24" # 255.255.255.0 = 256 IPs
+#  availability_zone = data.aws_availability_zones.available.names[1]
+#  tags = {
+#    Name = "K3s_Private_Subnet"
+#  }
 # }
 
 # Create a VPC Peering Connection
