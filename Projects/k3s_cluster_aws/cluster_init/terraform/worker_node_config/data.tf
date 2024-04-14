@@ -10,14 +10,14 @@ data "aws_vpc" "k3s_vpc" {
   }
 }
 
-data "aws_subnets" "k3s_private_subnet" {
+data "aws_subnets" "k3s_private_subnet" { # get aws-api aws_subnet 
   filter {
-    name   = "vpc-id"
+    name   = "vpc-id" 
     values = [data.aws_vpc.k3s_vpc.id]
   }
   filter {
-    name   = "tag:Name"
-    values = ["K3s_Private_Subnet"]
+    name   = "tag:Name" # Name = "K3s_Private_Subnet*"
+    values = ["K3s_Private_Subnet*"]
   }
 }
 
