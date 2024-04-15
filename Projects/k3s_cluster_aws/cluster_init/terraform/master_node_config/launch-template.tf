@@ -3,6 +3,7 @@ resource "aws_launch_template" "k3s_master" {
   image_id      = "ami-053b0d53c279acc90" # Update with the correct AMI ID
   instance_type = "c6a.large"             # Update as necessary
   key_name      = "jenkins-ansible"       # Update with your SSH key name
+  default_version = "$Latest"
 
 
   vpc_security_group_ids = [data.aws_security_group.k3s_sg.id]

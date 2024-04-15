@@ -19,8 +19,8 @@ pipeline {
                                   sparseCheckoutPaths: [[path: 'Projects/k3s_cluster_aws/']]
                               ]],
                               userRemoteConfigs: [[
-                                    url: 'git@github.com:LocalCoding/DevOps_Jan_24.git'
-                                    credentialsId: "jenkins_access_to_git"
+                                    url: 'git@github.com:LocalCoding/DevOps_Jan_24.git',
+                                    credentialsId: 'jenkins_access_to_git'
                               ]]
                     ])
                 }

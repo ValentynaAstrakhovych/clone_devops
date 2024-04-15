@@ -15,20 +15,21 @@ pipeline {
                               branches: [[name: 'main']],
                               doGenerateSubmoduleConfigurations: false,
                               extensions: [[
-                                  $class: 'SparseCheckoutPaths', 
-                                  sparseCheckoutPaths: [[path: 'projects/k3s_cluster_aws/cluster_init/']]
+                                  $class: 'SparseCheckoutPaths',
+                                  sparseCheckoutPaths: [[path: 'Projects/k3s_cluster_aws/']]
                               ]],
                               userRemoteConfigs: [[
-                                  url: 'https://github.com/OleksiiPasichnyk/Terraform.git'
+                                    url: 'git@github.com:LocalCoding/DevOps_Jan_24.git',
+                                    credentialsId: 'jenkins_access_to_git'
                               ]]
                     ])
                 }
             }
-        }
+        }   
         stage('Terraform Plan Destroy Worker Nodes') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
                 terraform init -input=false
                 terraform plan -destroy -out=terraform_destroy.tfplan
                 '''
@@ -37,7 +38,7 @@ pipeline {
         stage('Terraform Apply Destroy Worker Nodes') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
                 terraform apply -input=false terraform_destroy.tfplan
                 '''
             }
@@ -45,7 +46,7 @@ pipeline {
         stage('Terraform Plan Destroy Master Node(s)') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
                 terraform init -input=false
                 terraform plan -destroy -out=terraform_destroy.tfplan
                 '''
@@ -54,7 +55,7 @@ pipeline {
         stage('Terraform Apply Destroy Master Node(s)') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
                 terraform apply -input=false terraform_destroy.tfplan
                 '''
             }
@@ -62,7 +63,7 @@ pipeline {
         stage('Terraform Plan Destroy VPC') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
                 terraform init -input=false
                 terraform plan -destroy -out=terraform_destroy.tfplan
                 '''
@@ -71,7 +72,7 @@ pipeline {
         stage('Terraform Apply Destroy VPC') {
             steps {
                 sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
+                cd ./Projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
                 terraform apply -input=false terraform_destroy.tfplan
                 '''
             }

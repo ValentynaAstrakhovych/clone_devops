@@ -3,6 +3,7 @@ resource "aws_launch_template" "k3s_worker" {
   image_id      = "ami-053b0d53c279acc90"
   instance_type = "c6a.large"
   key_name      = "jenkins-ansible"
+  default_version = "$Latest"
 
   vpc_security_group_ids = [data.aws_security_group.k3s_sg.id] 
   # user_data = base64encode(<<EOF
