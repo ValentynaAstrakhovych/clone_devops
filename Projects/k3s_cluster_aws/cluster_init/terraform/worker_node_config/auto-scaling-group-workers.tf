@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "k3s_worker_asg" {
   min_size            = 2
   max_size            = 2
   desired_capacity    = 2
-  vpc_zone_identifier = data.aws_subnets.k3s_private_subnet.ids
+  vpc_zone_identifier = data.aws_subnets.k3s_private_subnets.ids
   health_check_type         = "EC2"
   health_check_grace_period = 300
   force_delete              = true
